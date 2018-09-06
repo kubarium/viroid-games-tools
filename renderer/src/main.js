@@ -1,12 +1,15 @@
 import Vue from "vue";
+import VueElectron from 'vue-electron';
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-//import "../../node_modules/bulma/css/bulma.css";
+import "bulma";
+import "@/fontawesome";
+console.log(process)
 
+Vue.use(VueElectron);
 Vue.config.productionTip = false;
-
 new Vue({
   router,
   store,

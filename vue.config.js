@@ -1,5 +1,8 @@
 var path = require("path");
 
+const srcPath = path.join(__dirname, "./renderer/src/")
+const nodeModules = path.join(__dirname, "./node_modules/")
+
 module.exports = {
   baseUrl: "./",
   chainWebpack: config => {
@@ -9,6 +12,12 @@ module.exports = {
       .add("./renderer/src/main.js")
       .end();
 
-    config.resolve.alias.delete("@").set("@", path.join(__dirname, "./renderer/src/"));
+    config
+      .resolve
+      .alias
+      .delete("@")
+      .set("@", srcPath)
+
+    config.target("electron-renderer")
   }
 };
