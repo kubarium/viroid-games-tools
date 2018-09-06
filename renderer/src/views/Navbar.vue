@@ -12,32 +12,31 @@
             <div class="navbar-end">
                 <a href="https://support.whiterabbitexpress.com" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">Help</a>
                 <a href="https://my.whiterabbitexpress.com/dashboard" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">Sign in</a>
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">Entity Generators</a>
-                    <div class="navbar-dropdown">
-                        <tooltip label="Create urban settlements of different size. Includes important people with their name and profession, lineage and wealth. Additionally, generate major historical events for the settlement." placement="top-right">
 
+                <div class="navbar-item" :class="{'has-dropdown':entry.items, 'is-hoverable':entry.items}" v-for="(entry,index) in menu" :key="index">
+                    <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{entry.label}} {{entry.items && entry.items.length}}</a>
+                    <div class="navbar-dropdown" v-if="entry.items">
+                        <!-- 
+                        <tooltip size="large" type="info" rounded label="Create urban settlements of different size. Includes important people with their name and profession, lineage and wealth. Additionally, generate major historical events for the settlement." placement="bottom">
                             <a href="/" class="navbar-item is-uppercase is-size-7">
-                                <font-awesome-icon icon="home" /> Village
+                                <font-awesome-icon icon="home" v-if=""/> Village
                             </a>
                         </tooltip>
-                        <a href="/fr/" class="navbar-item is-uppercase is-size-7">Treasure</a>
-                        <a href="/" class="navbar-item is-uppercase is-size-7">Person</a>
+                        <a href="/fr/" class="navbar-item is-uppercase is-size-7">Treasure</a> -->
+                        <a href="/" class="navbar-item is-uppercase is-size-7" v-for="item in entry.items" :key="item.label">{{item.label}}</a>
                     </div>
                 </div>
-                <div class="navbar-item">
-                    <button class="button" @click="currentWindow.minimize()">
+
+                <div class="navbar-item os-buttons">
+                    <span @click="currentWindow.minimize()">
                         <font-awesome-icon icon="window-minimize" />
-                    </button>
-                    <button class="button" @click="currentWindow.maximize()">
+                    </span>
+                    <span @click="currentWindow.maximize()">
                         <font-awesome-icon icon="window-maximize" />
-                    </button>
-                    <button class="button" @click="currentWindow.restore()">
-                        <font-awesome-icon icon="window-restore" />
-                    </button>
-                    <button class="button" @click="currentWindow.close()">
+                    </span>
+                    <span @click="currentWindow.close()">
                         <font-awesome-icon icon="window-close" />
-                    </button>
+                    </span>
                 </div>
             </div>
         </div>
@@ -45,20 +44,56 @@
 </template>
 
 <script>
-//import tooltip from "../../../node_modules/vue-bulma-tooltip";
 import Tooltip from "vue-bulma-tooltip";
-//const tooltip = window.require("vue-bulma-tooltip");
-//const remote = window.require('electron').remote;
+import menu from "@/menu.json";
+/* "items": [
+          {
+            "label": "Urban",
+            "url": "/urban-name-generator"
+          },
+          {
+            "label": "River"
+          },
+          {
+            "label": "Island"
+          },
+          {
+            "label": "Continent"
+          },
+          {
+            "label": "Valley"
+          },
+          {
+            "label": "Mountain"
+          }
+        ] */
 export default {
   name: "Navbar",
   created() {
-    this.$store.dispatch("fucksake", "dallama");
+    this.menu = menu;
   },
   data() {
     return {
-      currentWindow: this.$electron.remote.getCurrentWindow()
+      currentWindow: this.$electron.remote.getCurrentWindow(),
+      isMaximized: this.$electron.remote.getCurrentWindow().isMaximized()
     };
+  } /* 
+  watch: {
+    isMaximized: function() {
+      this.currentWindow = this.$electron.remote.getCurrentWindow();
+    }
   },
+  methods: {
+    toggleWindowSize() {
+      if (this.isMaximized) {
+        this.currentWindow.unmaximize();
+        this.isMaximized = false;
+      } else {
+        this.currentWindow.maximize();
+        this.isMaximized = true;
+      }
+    }
+  }, */,
   components: { Tooltip }
 };
 </script>
@@ -72,5 +107,8 @@ export default {
 }
 .has-dropdown [data-icon] {
   margin-right: 5px;
+}
+.os-buttons span {
+  margin: 0 5px;
 }
 </style>

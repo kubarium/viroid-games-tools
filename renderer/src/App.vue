@@ -13,10 +13,10 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 html {
   border: 1px solid #209cee;
-  overflow-y: initial;
+  overflow-y: hidden !important;
   height: 100%;
 }
 </style>

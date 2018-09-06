@@ -1,0 +1,76 @@
+[
+  {
+    "label": "Entity Generators",
+    "items": [
+      {
+        "icon": "home",
+        "label": "Village Generator",
+        "desc": "People names with the total population, their profession, lineage and wealth. Village's age and major historical events"
+      },
+      {
+        "icon": "gem",
+        "label": "Treasure"
+      },
+      {
+        "icon": "users",
+        "label": "Person"
+      }
+    ]
+  },
+  {
+    "label": "Name Generators",
+    "items": [
+      {
+        "icon": "ship",
+        "label": "Ship Names",
+        "url": "/ship-name-generator"
+      },
+      {
+        "icon": "beer",
+        "label": "Tavern Names",
+        "url": "/tavern-name-generator"
+      },
+      {
+        "icon": "bed",
+        "label": "Inn Names",
+        "url": "/inn-name-generator"
+      },
+      {
+        "icon": "users",
+        "label": "Person Names",
+        "url": "/person-name-generator"
+      },
+      {
+        "icon": "paw",
+        "label": "Animal Names",
+        "url": "/animal-name-generator"
+      },
+      {
+        "divider": true
+      },
+      {
+        "label": "Proper Noun Extractor",
+        "url": "/proper-noun-extractor"
+      },
+      {
+        "label": "Borek",
+        "url": "/borek"
+      },
+      {
+        "label": "Geography Names"
+      }
+    ]
+  },
+  {
+    "label": "Coat of Arms"
+  },
+  {
+    "label": "Map Generators",
+    "items": [
+      {
+        "icon": "globe",
+        "label": "Fantasy Map Generator"
+      }
+    ]
+  }
+]
