@@ -1,61 +1,27 @@
 {
   "name": "viroid-games-tools",
-  "productName": "Viroid Games Tools",
-  "version": "1.0.0",
-  "description": "My Electron application description",
-  "main": "src/main/index.js",
+  "version": "0.1.0",
+  "main": "main/index.js",
+  "private": true,
   "scripts": {
-    "serve": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
-  },
-  "keywords": [],
-  "author": "Kumsal",
-  "license": "MIT",
-  "config": {
-    "forge": {
-      "make_targets": {
-        "win32": [
-          "squirrel"
-        ],
-        "darwin": [
-          "zip"
-        ],
-        "linux": [
-          "deb",
-          "rpm"
-        ]
-      },
-      "electronPackagerConfig": {
-        "packageManager": "yarn"
-      },
-      "electronWinstallerConfig": {
-        "name": "my_new_project"
-      },
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
-      "github_repository": {
-        "owner": "",
-        "name": ""
-      },
-      "windowsStoreConfig": {
-        "packageName": "",
-        "name": "mynewproject"
-      }
-    }
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "electron": "yarn serve && electron ."
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.2",
-    "@fortawesome/free-solid-svg-icons": "^5.2.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/free-solid-svg-icons": "^5.3.1",
     "@fortawesome/vue-fontawesome": "^0.1.1",
+    "app-root-path": "^2.1.0",
     "axios": "^0.18.0",
     "bulma": "^0.7.1",
+    "electron": "^2.0.8",
     "electron-compile": "^6.4.3",
-    "electron-devtools-installer": "^2.2.4",
-    "electron-squirrel-startup": "^1.0.0",
-    "vue": "^2.1.7",
+    "electron-is-dev": "^0.3.0",
+    "electron-reload": "^1.2.5",
+    "url": "^0.11.0",
+    "vue": "^2.5.17",
     "vue-bulma-brace": "^0.1.0",
     "vue-bulma-card": "^1.0.2",
     "vue-bulma-collapse": "^1.0.3",
@@ -75,17 +41,18 @@
     "vue-electron": "^1.0.6",
     "vue-lory": "^0.0.5",
     "vue-router": "^3.0.1",
-    "vuefire": "^2.0.0-alpha.15",
+    "vuefire": "^1.4.5",
     "vueify": "^9.4.1",
     "vuex": "^3.0.1",
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "electron-debug": "^2.0.0",
-    "electron-forge": "^5.2.2",
-    "electron-prebuilt-compile": "2.0.7"
+    "@vue/cli-plugin-babel": "^3.0.1",
+    "@vue/cli-plugin-eslint": "^3.0.1",
+    "@vue/cli-service": "^3.0.1",
+    "electron-devtools-installer": "^2.2.4",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "vue-template-compiler": "^2.5.17"
   }
 }
