@@ -1,16 +1,16 @@
 <template>
     <nav id="titlebar" role="navigation" aria-label="main navigation" class="navbar is-info">
         <div class="navbar-brand">
-            <span class="site-name navbar-item is-size-7 is-uppercase has-text-weight-bold">Viroid Games Tools</span>
-            <div role="button" aria-label="menu" aria-expanded="false" class="navbar-burger">
+            <span class="site-name navbar-item is-size-7 is-uppercase has-text-weight-bold">
+                <img src="../assets/viroid_64x64_transparent.png" /> Viroid Games Tools</span>
+            <div role="button" aria-label="menu" aria-expanded="false" class="navbar-burger is-active">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </div>
         </div>
-        <div class="navbar-menu">
+        <div class="navbar-menu is-active">
             <div class="navbar-end">
-
                 <a href="/" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
                     <font-awesome-icon icon="file-alt" /> Name Extractor</a>
                 <a href="/" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
@@ -36,6 +36,10 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
                 <div class="navbar-item os-buttons">
                     <span @click="currentWindow.minimize()">
                         <font-awesome-icon icon="window-minimize" />
@@ -80,6 +84,7 @@ export default {
   name: "Navbar",
   created() {
     this.menu = menu;
+    console.log(this.$electron.remote.getCurrentWindow().getTitle());
   },
   data() {
     return {
@@ -106,16 +111,21 @@ export default {
   components: { Tooltip }
 };
 </script>
-
-<style scoped>
+<style lang="scss" scoped>
 #titlebar {
   -webkit-app-region: drag;
 }
 .navbar-end {
   -webkit-app-region: no-drag;
 }
+.navbar-menu:nth-child(2) {
+  & .navbar-item:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+  }
+}
 [data-icon] {
   margin-right: 5px;
+  min-width: 15px;
 }
 .os-buttons span {
   margin: 0 5px;

@@ -1,10 +1,10 @@
-const { app, BrowserWindow } = require("electron");
+const {app, BrowserWindow} = require("electron");
 const electron = require("electron");
 const path = require("path");
-const { format } = require("url");
-const { resolve } = require("app-root-path");
+const {format} = require("url");
+const {resolve} = require("app-root-path");
 const isDev = require("electron-is-dev");
-const { default: installExtension, VUEJS_DEVTOOLS } = require("electron-devtools-installer");
+const {default: installExtension, VUEJS_DEVTOOLS} = require("electron-devtools-installer");
 
 require("electron-reload")(__dirname, {
   electron: path.join(__dirname, "../node_modules", ".bin", "electron")
@@ -15,25 +15,30 @@ require("electron-reload")(__dirname, {
 let win;
 
 async function createWindow() {
-  var displays = electron.screen.getAllDisplays();
+  var displays = electron
+    .screen
+    .getAllDisplays();
   var display = displays[displays.length - 1];
 
   // Create the browser window.
   win = new BrowserWindow({
     title: "Viroid Games Tools",
     frame: false,
+    icon: path.join(__dirname, "../renderer/src/assets/viroid_64x64.png"),
     acceptFirstMouse: true,
     hasShadow: false,
-    width: 1000,
+    minWidth: 1100,
     height: 500,
     x: display.bounds.x + 50,
     y: display.bounds.y + 50
   });
 
   const devPath = "http://localhost:8080";
-  const prodPath = format({ pathname: resolve("dist/index.html"), protocol: "file:", slashes: true });
+  const prodPath = format({pathname: resolve("dist/index.html"), protocol: "file:", slashes: true});
 
-  const url = isDev ? devPath : prodPath;
+  const url = isDev
+    ? devPath
+    : prodPath;
 
   // Emitted when the window is closed.
   win.on("closed", () => {
@@ -43,12 +48,16 @@ async function createWindow() {
     win = null;
   });
 
+  win.on("page-title-updated", (event) => event.preventDefault())
+
   win.loadURL(url);
   win.maximize();
   if (isDev) {
     await installExtension(VUEJS_DEVTOOLS);
 
-    win.webContents.openDevTools();
+    win
+      .webContents
+      .openDevTools();
   }
 }
 
