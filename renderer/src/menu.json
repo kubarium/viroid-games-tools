@@ -4,8 +4,8 @@
     "items": [
       {
         "icon": "home",
-        "label": "Village Generator",
-        "desc": "People names with the total population, their profession, lineage and wealth. Village's age and major historical events"
+        "label": "Village",
+        "desc": "Create urban settlements of different size. Includes important people with their name and profession, lineage and wealth. Additionally, generate major historical events for the settlement."
       },
       {
         "icon": "gem",
@@ -46,23 +46,30 @@
         "url": "/animal-name-generator"
       },
       {
-        "divider": true
-      },
-      {
-        "label": "Proper Noun Extractor",
-        "url": "/proper-noun-extractor"
-      },
-      {
-        "label": "Borek",
-        "url": "/borek"
-      },
-      {
-        "label": "Geography Names"
+        "label": "Geography Names",
+        "items": [
+          {
+            "label": "Urban",
+            "url": "/urban-name-generator"
+          },
+          {
+            "label": "River"
+          },
+          {
+            "label": "Island"
+          },
+          {
+            "label": "Continent"
+          },
+          {
+            "label": "Valley"
+          },
+          {
+            "label": "Mountain"
+          }
+        ]
       }
     ]
-  },
-  {
-    "label": "Coat of Arms"
   },
   {
     "label": "Map Generators",

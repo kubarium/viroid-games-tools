@@ -10,20 +10,20 @@
         </div>
         <div class="navbar-menu">
             <div class="navbar-end">
-                <a href="https://support.whiterabbitexpress.com" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">Help</a>
-                <a href="https://my.whiterabbitexpress.com/dashboard" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">Sign in</a>
 
-                <div class="navbar-item" :class="{'has-dropdown':entry.items, 'is-hoverable':entry.items}" v-for="(entry,index) in menu" :key="index">
-                    <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{entry.label}} {{entry.items && entry.items.length}}</a>
+                <a href="/" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">Name Extractor</a>
+                <a href="/" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">Coat of Arms</a>
+
+                <div class="navbar-item has-dropdown is-hoverable" v-for="(entry,index) in menu" :key="index">
+                    <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{entry.label}}</a>
                     <div class="navbar-dropdown" v-if="entry.items">
-                        <!-- 
-                        <tooltip size="large" type="info" rounded label="Create urban settlements of different size. Includes important people with their name and profession, lineage and wealth. Additionally, generate major historical events for the settlement." placement="bottom">
-                            <a href="/" class="navbar-item is-uppercase is-size-7">
-                                <font-awesome-icon icon="home" v-if=""/> Village
+                        <tooltip size="large" type="info" rounded :label="item.desc" placement="bottom" v-for="item in entry.items" :key="item.label">
+                            <a href="/" class="navbar-item  is-size-7">
+                                <span class="is-uppercase">
+                                    <font-awesome-icon :icon="item.icon" v-if="item.icon" /> {{item.label}}
+                                </span>
                             </a>
                         </tooltip>
-                        <a href="/fr/" class="navbar-item is-uppercase is-size-7">Treasure</a> -->
-                        <a href="/" class="navbar-item is-uppercase is-size-7" v-for="item in entry.items" :key="item.label">{{item.label}}</a>
                     </div>
                 </div>
 
