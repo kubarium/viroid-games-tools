@@ -1,59 +1,59 @@
 <template>
-    <nav id="titlebar" role="navigation" aria-label="main navigation" class="navbar is-info">
-        <div class="navbar-brand">
-            <span class="site-name navbar-item is-size-7 is-uppercase has-text-weight-bold">
-                <img src="../assets/viroid_64x64_transparent.png" /> Viroid Games Tools</span>
-            <div role="button" aria-label="menu" aria-expanded="false" class="navbar-burger is-active">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </div>
-        </div>
-        <div class="navbar-menu is-active">
-            <div class="navbar-end">
-                <a href="/" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
-                    <font-awesome-icon icon="file-alt" /> Name Extractor</a>
-                <a href="/" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
-                    <font-awesome-icon icon="shield-alt" />Coat of Arms</a>
+  <nav id="titlebar" role="navigation" aria-label="main navigation" class="navbar is-info">
+    <div class="navbar-brand">
+      <router-link to="/" class="site-name navbar-item is-size-7 is-uppercase has-text-weight-bold">
+        <img src="../assets/viroid_64x64_transparent.png" /> Viroid Games Tools</router-link>
+      <div role="button" aria-label="menu" aria-expanded="false" class="navbar-burger is-active">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="navbar-menu is-active">
+      <div class="navbar-end">
+        <router-link to="/about" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
+          <font-awesome-icon icon="file-alt" /> Name Extractor</router-link>
+        <router-link to="/" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
+          <font-awesome-icon icon="shield-alt" />Coat of Arms</router-link>
 
-                <div class="navbar-item has-dropdown is-hoverable" v-for="(entry,index) in menu" :key="index">
+        <div class="navbar-item has-dropdown is-hoverable" v-for="(entry,index) in menu" :key="index">
+          <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{entry.label}}</a>
+          <div class="navbar-dropdown" v-if="entry.items">
+            <tooltip size="large" type="info" rounded :label="item.desc" placement="bottom" v-for="item in entry.items" :key="item.label">
+              <router-link :to="item.url" class="navbar-item  is-size-7">
+                <span class="is-uppercase">
+                  <font-awesome-icon :icon="item.icon" v-if="item.icon" /> {{item.label}}
+
+                  <!-- <div class="navbar-item has-dropdown is-hoverable" v-if="item.items">
                     <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{entry.label}}</a>
-                    <div class="navbar-dropdown" v-if="entry.items">
-                        <tooltip size="large" type="info" rounded :label="item.desc" placement="bottom" v-for="item in entry.items" :key="item.label">
-                            <a href="/" class="navbar-item  is-size-7">
-                                <span class="is-uppercase">
-                                    <font-awesome-icon :icon="item.icon" v-if="item.icon" /> {{item.label}}
-
-                                    <div class="navbar-item has-dropdown is-hoverable" v-if="item.items">
-                                        <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{entry.label}}</a>
-                                        <div class="navbar-dropdown">
-                                            <a href="/" class="navbar-item  is-size-7" v-for="(entry,index) in item.items" :key="index">{{entry.label}}</a>
-                                        </div>
-                                    </div>
-                                </span>
-                            </a>
-                        </tooltip>
+                    <div class="navbar-dropdown">
+                      <a href="/" class="navbar-item  is-size-7" v-for="(entry,index) in item.items" :key="index">{{entry.label}}</a>
                     </div>
-                </div>
+                  </div> -->
+                </span>
+              </router-link>
+            </tooltip>
+          </div>
+        </div>
 
-            </div>
+      </div>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item os-buttons">
+          <span @click="currentWindow.minimize()">
+            <font-awesome-icon icon="window-minimize" />
+          </span>
+          <span @click="currentWindow.maximize()">
+            <font-awesome-icon icon="window-maximize" />
+          </span>
+          <span @click="currentWindow.close()">
+            <font-awesome-icon icon="window-close" />
+          </span>
         </div>
-        <div class="navbar-menu">
-            <div class="navbar-end">
-                <div class="navbar-item os-buttons">
-                    <span @click="currentWindow.minimize()">
-                        <font-awesome-icon icon="window-minimize" />
-                    </span>
-                    <span @click="currentWindow.maximize()">
-                        <font-awesome-icon icon="window-maximize" />
-                    </span>
-                    <span @click="currentWindow.close()">
-                        <font-awesome-icon icon="window-close" />
-                    </span>
-                </div>
-            </div>
-        </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -115,7 +115,8 @@ export default {
 #titlebar {
   -webkit-app-region: drag;
 }
-.navbar-end {
+.navbar-end,
+.navbar-brand {
   -webkit-app-region: no-drag;
 }
 .navbar-menu:nth-child(2) {

@@ -3,17 +3,22 @@
     "label": "Entity Generators",
     "items": [
       {
+        "url": "/village-generator",
         "icon": "home",
         "label": "Village",
         "desc": "Create urban settlements of different size. Includes important people with their name and profession, lineage and wealth. Additionally, generate major historical events for the settlement."
       },
       {
+        "url": "/treasure-generator",
         "icon": "gem",
-        "label": "Treasure"
+        "label": "Treasure",
+        "desc": "Start counting those coins. Maybe you fancy a new magical armor. Come in, come in!"
       },
       {
+        "url": "/person-generator",
         "icon": "users",
-        "label": "Person"
+        "label": "Person",
+        "desc": "Create NPCs, memorable characters with their background and family history."
       }
     ]
   },
