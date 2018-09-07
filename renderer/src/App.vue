@@ -14,9 +14,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/../node_modules/bulma/bulma.sass";
+
 html {
   border: 1px solid #209cee;
-  overflow-y: hidden !important;
+  overflow-y: hidden;
   height: 100%;
+}
+.section {
+  padding: 2rem 1.5rem;
 }
 </style>

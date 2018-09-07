@@ -4,9 +4,10 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-import "bulma";
+/* import Bulma from "bulma";
+Vue.use(Bulma) */
+
 import "@/fontawesome";
-console.log(process)
 
 Vue.use(VueElectron);
 Vue.config.productionTip = false;

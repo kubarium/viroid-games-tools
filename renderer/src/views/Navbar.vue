@@ -11,7 +11,7 @@
     </div>
     <div class="navbar-menu is-active">
       <div class="navbar-end">
-        <router-link to="/about" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
+        <router-link to="/name-extractor" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
           <font-awesome-icon icon="file-alt" /> Name Extractor</router-link>
         <router-link to="/" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
           <font-awesome-icon icon="shield-alt" />Coat of Arms</router-link>
