@@ -2,6 +2,7 @@ import Vue from 'vue'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {
     faWindowClose,
+    faAtlas,
     faWindowMinimize,
     faWindowMaximize,
     faWindowRestore,
@@ -14,12 +15,15 @@ import {
     faBed,
     faPaw,
     faFlag,
-    faGlobe
+    faGlobe,
+    faShieldAlt,
+    faFileAlt
 } from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
 [
     faWindowClose,
+    faAtlas,
     faWindowMinimize,
     faWindowMaximize,
     faWindowRestore,
@@ -32,7 +36,9 @@ import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
     faBed,
     faPaw,
     faFlag,
-    faGlobe
+    faGlobe,
+    faFileAlt,
+    faShieldAlt
 ].forEach(icon => library.add(icon))
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

@@ -11,8 +11,10 @@
         <div class="navbar-menu">
             <div class="navbar-end">
 
-                <a href="/" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">Name Extractor</a>
-                <a href="/" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">Coat of Arms</a>
+                <a href="/" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
+                    <font-awesome-icon icon="file-alt" /> Name Extractor</a>
+                <a href="/" target="_blank" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
+                    <font-awesome-icon icon="shield-alt" />Coat of Arms</a>
 
                 <div class="navbar-item has-dropdown is-hoverable" v-for="(entry,index) in menu" :key="index">
                     <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{entry.label}}</a>
@@ -21,6 +23,13 @@
                             <a href="/" class="navbar-item  is-size-7">
                                 <span class="is-uppercase">
                                     <font-awesome-icon :icon="item.icon" v-if="item.icon" /> {{item.label}}
+
+                                    <div class="navbar-item has-dropdown is-hoverable" v-if="item.items">
+                                        <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{entry.label}}</a>
+                                        <div class="navbar-dropdown">
+                                            <a href="/" class="navbar-item  is-size-7" v-for="(entry,index) in item.items" :key="index">{{entry.label}}</a>
+                                        </div>
+                                    </div>
                                 </span>
                             </a>
                         </tooltip>
@@ -105,7 +114,7 @@ export default {
 .navbar-end {
   -webkit-app-region: no-drag;
 }
-.has-dropdown [data-icon] {
+[data-icon] {
   margin-right: 5px;
 }
 .os-buttons span {

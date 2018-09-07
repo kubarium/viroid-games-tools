@@ -46,28 +46,9 @@
         "url": "/animal-name-generator"
       },
       {
+        "icon": "atlas",
         "label": "Geography Names",
-        "items": [
-          {
-            "label": "Urban",
-            "url": "/urban-name-generator"
-          },
-          {
-            "label": "River"
-          },
-          {
-            "label": "Island"
-          },
-          {
-            "label": "Continent"
-          },
-          {
-            "label": "Valley"
-          },
-          {
-            "label": "Mountain"
-          }
-        ]
+        "url": "/geography-name-generator"
       }
     ]
   },
@@ -76,7 +57,8 @@
     "items": [
       {
         "icon": "globe",
-        "label": "Fantasy Map Generator"
+        "label": "Fantasy Map Generator",
+        "url": "/fantasy-map-generator"
       }
     ]
   }
