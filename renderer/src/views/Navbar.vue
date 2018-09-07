@@ -84,7 +84,6 @@ export default {
   name: "Navbar",
   created() {
     this.menu = menu;
-    console.log(this.$electron.remote.getCurrentWindow().getTitle());
   },
   data() {
     return {
