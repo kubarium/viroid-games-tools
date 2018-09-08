@@ -24,4 +24,7 @@ html {
 .section {
   padding: 2rem 1.5rem;
 }
+.file-input {
+  left: 20px;
+}
 </style>

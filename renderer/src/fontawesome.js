@@ -17,7 +17,8 @@ import {
     faFlag,
     faGlobe,
     faShieldAlt,
-    faFileAlt
+    faFileAlt,
+    faUpload
 } from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
@@ -38,6 +39,7 @@ import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
     faFlag,
     faGlobe,
     faFileAlt,
+    faUpload,
     faShieldAlt
 ].forEach(icon => library.add(icon))
 

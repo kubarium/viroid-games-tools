@@ -19,20 +19,18 @@
         <div class="navbar-item has-dropdown is-hoverable" v-for="(entry,index) in menu" :key="index">
           <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{entry.label}}</a>
           <div class="navbar-dropdown" v-if="entry.items">
-            <tooltip size="large" type="info" rounded :label="item.desc" placement="bottom" v-for="item in entry.items" :key="item.label">
-              <router-link :to="item.url" class="navbar-item  is-size-7">
-                <span class="is-uppercase">
-                  <font-awesome-icon :icon="item.icon" v-if="item.icon" /> {{item.label}}
+            <router-link :to="item.url" class="navbar-item  is-size-7" v-tooltip.left="item.desc" v-for="item in entry.items" :key="item.label">
+              <span class="is-uppercase">
+                <font-awesome-icon :icon="item.icon" v-if="item.icon" /> {{item.label}}
 
-                  <!-- <div class="navbar-item has-dropdown is-hoverable" v-if="item.items">
+                <!-- <div class="navbar-item has-dropdown is-hoverable" v-if="item.items">
                     <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{entry.label}}</a>
                     <div class="navbar-dropdown">
                       <a href="/" class="navbar-item  is-size-7" v-for="(entry,index) in item.items" :key="index">{{entry.label}}</a>
                     </div>
                   </div> -->
-                </span>
-              </router-link>
-            </tooltip>
+              </span>
+            </router-link>
           </div>
         </div>
 
@@ -57,7 +55,6 @@
 </template>
 
 <script>
-import Tooltip from "vue-bulma-tooltip";
 import menu from "@/menu.json";
 /* "items": [
           {
@@ -106,8 +103,7 @@ export default {
         this.isMaximized = true;
       }
     }
-  }, */,
-  components: { Tooltip }
+  }, */
 };
 </script>
 <style lang="scss" scoped>
