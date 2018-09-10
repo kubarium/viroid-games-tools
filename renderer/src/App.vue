@@ -1,11 +1,11 @@
 <template>
   <div class="app">
     <navbar/>
-    <div class="content">
+    <main>
       <keep-alive>
         <router-view/>
       </keep-alive>
-    </div>
+    </main>
   </div>
 </template>
 <script>
@@ -30,7 +30,7 @@ html {
 .app {
   padding-top: 3.25rem;
 }
-.content {
+main {
   max-height: calc(100vh - 3.25rem - 1px);
   overflow: auto;
 }

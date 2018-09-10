@@ -54,12 +54,24 @@
         </div>
         <div class="column">
           <div class="field">
-            <label class="label">Passages <span v-show="$store.state.passages.length">({{$store.state.passages.length}})</span></label>
-                      <!-- <AceEditor :fontSize="14" :showPrintMargin="false" :showGutter="true" :wrapEnabled="true" :highlightActiveLine="true" mode="text" theme="github" :onSelectionChange="onSelectionChange" :value=braceValue :editorProps="{$blockScrolling: true}"/>
-                       -->
-                      <!-- <editor v-model="$store.getters.passages" @init="editorInit" lang="html" theme="chrome" width="100cw" height="100ch" wrapEnabled="true"></editor> -->
-                      <div class="passages">{{$store.state.passages}}</div>
-                      </div>
+            <div class="panel">
+              <div class="panel-heading">
+                <div class="level">
+                  <div class="level-left">
+                    Passages
+                    <span v-show="numOfPassages"> for {{$store.state.passagesFor}} ({{numOfPassages}})</span>
+                  </div>
+                  <div class="level-right">
+                    <slider v-show="numOfPassages>pageSize" class="pulled-right" type="info" :value="page" :max="Math.floor(numOfPassages/pageSize)" :step="1" @change="revealPassages"></slider>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-block" v-for="(passage,index) in $store.state.passages.slice(page*pageSize,page*pageSize+pageSize)" :key="index">
+                <span v-html="passage"></span>
+              </div>
+              <div class="panel-block" v-show="numOfPassages===0">Select a detected name to see where it's mentioned in the book</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -68,34 +80,27 @@
 
 <script>
 import { Tabs, TabPane } from "vue-bulma-tabs";
-/* import "brace";
-
-import { Ace as AceEditor } from "vue2-brace-editor";
-import "brace/mode/text";
-import "brace/theme/github"; */
+import Slider from "vue-bulma-slider";
 
 export default {
-  components: { editor: require('vue2-ace-editor'), Tabs, TabPane },
+  components: { Slider, Tabs, TabPane },
   data() {
-    return {
-
-    };
+    return { page: 0, pageSize: 5 };
   },
-  computed:{
-    braceValue() {
-      console.log("brace for fuck up")
-      //return this.$store.getters.getPassages()
+  computed: {
+    numOfPassages: function() {
+      return this.$store.state.passages.length;
+    }
+  },
+  watch: {
+    numOfPassages: function() {
+      this.page = 0;
     }
   },
   methods: {
-    editorInit: function () {
-            require('brace/ext/language_tools') //language extension prerequsite...
-            require('brace/mode/html')                
-            require('brace/mode/javascript')    //language
-            require('brace/mode/less')
-            require('brace/theme/chrome')
-            require('brace/snippets/javascript') //snippet
-        },
+    revealPassages(page) {
+      this.page = parseInt(page);
+    },
     onSelectionChange() {}
   }
 };
@@ -121,8 +126,4 @@ export default {
 .tag {
   cursor: help;
 }
-.passages{
-  outline:1px solid red
-}
 </style>
-
