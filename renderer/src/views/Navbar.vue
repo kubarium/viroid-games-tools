@@ -1,13 +1,8 @@
 <template>
-  <nav id="titlebar" role="navigation" aria-label="main navigation" class="navbar is-info">
+  <nav id="titlebar" role="navigation" aria-label="main navigation" class="navbar is-info is-fixed-top">
     <div class="navbar-brand">
       <router-link to="/" class="site-name navbar-item is-size-7 is-uppercase has-text-weight-bold">
         <img src="../assets/viroid_64x64_transparent.png" /> Viroid Games Tools</router-link>
-      <div role="button" aria-label="menu" aria-expanded="false" class="navbar-burger is-active">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </div>
     </div>
     <div class="navbar-menu is-active">
       <div class="navbar-end">
@@ -22,13 +17,6 @@
             <router-link :to="item.url" class="navbar-item  is-size-7" v-tooltip.left="item.desc" v-for="item in entry.items" :key="item.label">
               <span class="is-uppercase">
                 <font-awesome-icon :icon="item.icon" v-if="item.icon" /> {{item.label}}
-
-                <!-- <div class="navbar-item has-dropdown is-hoverable" v-if="item.items">
-                    <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{entry.label}}</a>
-                    <div class="navbar-dropdown">
-                      <a href="/" class="navbar-item  is-size-7" v-for="(entry,index) in item.items" :key="index">{{entry.label}}</a>
-                    </div>
-                  </div> -->
               </span>
             </router-link>
           </div>
