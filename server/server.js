@@ -1,5 +1,5 @@
 const Hapi = require('hapi');
-const {extract, findPassage} = require("./name-extractor")
+const {extract, findPassage, saveDetectedNames} = require("./name-extractor")
 // Create a server with a host and port
 const server = Hapi.server({
     host: 'localhost',
@@ -23,6 +23,13 @@ server.route({
     ],
     path: '/find-passage',
     handler: (request, h) => findPassage(request.payload.name)
+});
+server.route({
+    method: [
+        'GET', 'POST'
+    ],
+    path: '/save-detected-names',
+    handler: (request, h) => saveDetectedNames(request.payload)
 });
 
 // Start the server
