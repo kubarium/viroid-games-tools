@@ -8,7 +8,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "electron": "electron .",
-    "viroid": "npm-run-all -p serve electron -c"
+    "nodemon": "nodemon '.\\server\\server.js'",
+    "viroid": "npm-run-all -p serve electron nodemon -c"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
