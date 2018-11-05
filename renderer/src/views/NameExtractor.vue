@@ -43,6 +43,7 @@
                 <button class="delete is-small" @click="$store.commit('deleteDetectedName',index)"></button>
               </span>
 
+              <span v-show="$store.state.detectedNames.length===0">Detected names in e-books will be listed here</span>
             </div>
           </div>
           <div class="field">
