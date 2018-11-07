@@ -4,19 +4,19 @@
     "items": [
       {
         "url": "/village-generator",
-        "icon": "home",
+        "icon": "fa-home",
         "label": "Village",
         "desc": "Create urban settlements of different size. Includes important people with their name and profession, lineage and wealth. Additionally, generate major historical events for the settlement."
       },
       {
         "url": "/treasure-generator",
-        "icon": "gem",
+        "icon": "fa-gem",
         "label": "Treasure",
         "desc": "Start counting those coins. Maybe you fancy a new magical armor. Come in, come in!"
       },
       {
         "url": "/person-generator",
-        "icon": "users",
+        "icon": "fa-users",
         "label": "Person",
         "desc": "Create NPCs, memorable characters with their background and family history."
       }
@@ -26,32 +26,32 @@
     "label": "Name Generators",
     "items": [
       {
-        "icon": "ship",
+        "icon": "fa-ship",
         "label": "Ship Names",
         "url": "/ship-name-generator"
       },
       {
-        "icon": "beer",
+        "icon": "fa-beer",
         "label": "Tavern Names",
         "url": "/tavern-name-generator"
       },
       {
-        "icon": "bed",
+        "icon": "fa-bed",
         "label": "Inn Names",
         "url": "/inn-name-generator"
       },
       {
-        "icon": "users",
+        "icon": "fa-users",
         "label": "Person Names",
         "url": "/person-name-generator"
       },
       {
-        "icon": "paw",
+        "icon": "fa-paw",
         "label": "Animal Names",
         "url": "/animal-name-generator"
       },
       {
-        "icon": "atlas",
+        "icon": "fa-atlas",
         "label": "Geography Names",
         "url": "/geography-name-generator"
       }
@@ -61,7 +61,7 @@
     "label": "Map Generators",
     "items": [
       {
-        "icon": "globe",
+        "icon": "fa-globe",
         "label": "Fantasy Map Generator",
         "url": "/fantasy-map-generator"
       }

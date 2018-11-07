@@ -7,16 +7,20 @@
     <div class="navbar-menu is-active">
       <div class="navbar-end">
         <router-link to="/name-extractor" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
-          <font-awesome-icon icon="file-alt" /> Name Extractor</router-link>
+          <v-icon>fas fa-file-alt</v-icon> Name Extractor
+        </router-link>
+
         <router-link to="/" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
-          <font-awesome-icon icon="shield-alt" />Coat of Arms</router-link>
+          <v-icon>fas fa-shield-alt</v-icon>
+          Coat of Arms
+        </router-link>
 
         <div class="navbar-item has-dropdown is-hoverable" v-for="(entry,index) in menu" :key="index">
           <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{entry.label}}</a>
           <div class="navbar-dropdown" v-if="entry.items">
             <router-link :to="item.url" class="navbar-item  is-size-7" v-tooltip.left="item.desc" v-for="item in entry.items" :key="item.label">
               <span class="is-uppercase">
-                <font-awesome-icon :icon="item.icon" v-if="item.icon" /> {{item.label}}
+                <v-icon v-if="item.icon">fas {{item.icon}}</v-icon> {{item.label}}
               </span>
             </router-link>
           </div>
@@ -28,13 +32,13 @@
       <div class="navbar-end">
         <div class="navbar-item os-buttons">
           <span @click="currentWindow.minimize()">
-            <font-awesome-icon icon="window-minimize" />
+            <v-icon>fas fa-window-minimize</v-icon>
           </span>
           <span @click="currentWindow.maximize()">
-            <font-awesome-icon icon="window-maximize" />
+            <v-icon>fas fa-window-maximize</v-icon>
           </span>
           <span @click="currentWindow.close()">
-            <font-awesome-icon icon="window-close" />
+            <v-icon>fas fa-window-close</v-icon>
           </span>
         </div>
       </div>

@@ -2,7 +2,7 @@
   <div class="section">
     <div class="level">
       <div class="level-left">
-        <span class="title is-size-5">Name Extractor</span>
+        <span class="title is-size-5">Name Extractorsss</span>
       </div>
       <div class="level-right">
         <div class="field has-addons">
@@ -48,11 +48,28 @@
           </div>
           <div class="field">
             <label class="label">Workbench</label>
-
-            <tabs type="boxed">
+            <v-tabs color="cyan" dark slider-color="yellow">
+              <v-tab ripple>
+                Description
+              </v-tab>
+              <v-tab-item>
+                <v-card flat>
+                  <v-card-text>Description</v-card-text>
+                </v-card>
+              </v-tab-item>
+              <v-tab ripple>
+                Tags
+              </v-tab>
+              <v-tab-item>
+                <v-card flat>
+                  <v-card-text>Tags</v-card-text>
+                </v-card>
+              </v-tab-item>
+            </v-tabs>
+            <!-- <tabs type="boxed">
               <tab-pane label="Description" selected>Description</tab-pane>
               <tab-pane label="Tags">Tags</tab-pane>
-            </tabs>
+            </tabs> -->
           </div>
         </div>
         <div class="column">
@@ -66,7 +83,7 @@
                   <span v-show="numOfPassages">with {{$store.state.passagesFor}} ({{numOfPassages}})</span>
                 </div>
                 <div class="level-right">
-                  <slider v-show="numOfPassages>5*pageSize" class="pulled-right" type="info" :value="page" :max="Math.floor(numOfPassages/pageSize)" :step="1" @change="revealPassages"></slider>
+                  <v-slider v-show="numOfPassages>5*pageSize" class="pulled-right" color="info" :value="page" :max="Math.floor(numOfPassages/pageSize)" @change="revealPassages"></v-slider>
                   <nav class="pagination is-small" role="navigation" aria-label="pagination" v-show="numOfPassages<=5*pageSize">
                     <ul class="pagination-list">
                       <li>
@@ -79,8 +96,6 @@
             </div>
             <div class="panel-block" v-for="(passage,index) in $store.state.passages.slice(page*pageSize,page*pageSize+pageSize)" :key="index">
               <p v-html="passage" class="passage"></p>
-              <!-- <p>
-                </p> -->
             </div>
             <div class="panel-block" v-show="numOfPassages===0">Select a detected name to see where it's mentioned in the book</div>
           </div>
@@ -91,11 +106,9 @@
 </template>
 
 <script>
-import { Tabs, TabPane } from "vue-bulma-tabs";
-import Slider from "vue-bulma-slider";
 
 export default {
-  components: { Slider, Tabs, TabPane },
+  components: {  },
   data() {
     return { page: 0, pageSize: 5, isLoading: false };
   },
