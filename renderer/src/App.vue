@@ -1,5 +1,5 @@
 <template>
-  <v-app class="app">
+  <v-app>
 
     <toolbar />
     <!-- <v-toolbar app>
@@ -21,7 +21,7 @@ import Toolbar from "@/views/Toolbar.vue";
 export default {
   components: {
     Navbar,
-    Toolbar,
+    Toolbar
   }
 };
 </script>
@@ -33,9 +33,6 @@ html {
   border-top: 0;
   height: 100%;
   overflow: hidden;
-}
-.app {
-  padding-top: 3.25rem;
 }
 .text-no-underline {
   text-decoration: none;

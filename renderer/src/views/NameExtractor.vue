@@ -1,5 +1,27 @@
 <template>
-  <div class="section">
+  <v-container grid-list-md>
+    <v-layout row wrap>
+      <v-flex xs12>
+
+        <v-layout row wrap>
+<v-flex md6 xs6>
+        <span class="display-1">Name Digger</span>
+</v-flex>
+<v-flex md6 xs6>
+  <file-picker/>
+</v-flex>
+        </v-layout>
+        
+
+      </v-flex>
+      <v-flex v-for="i in 2" :key="`6${i}`" xs6>
+        <v-card dark color="secondary">
+          <v-card-text class="px-0">6</v-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
+  <!-- <div class="section">
     <div class="level">
       <div class="level-left">
         <span class="title is-size-5">Name Extractorsss</span>
@@ -66,10 +88,7 @@
                 </v-card>
               </v-tab-item>
             </v-tabs>
-            <!-- <tabs type="boxed">
-              <tab-pane label="Description" selected>Description</tab-pane>
-              <tab-pane label="Tags">Tags</tab-pane>
-            </tabs> -->
+            
           </div>
         </div>
         <div class="column">
@@ -102,13 +121,13 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
-
+import FilePicker from "@/components/FilePicker.vue";
 export default {
-  components: {  },
+  components: { FilePicker },
   data() {
     return { page: 0, pageSize: 5, isLoading: false };
   },
