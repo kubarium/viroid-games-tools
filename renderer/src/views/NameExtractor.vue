@@ -2,17 +2,14 @@
   <v-container grid-list-md>
     <v-layout row wrap>
       <v-flex xs12>
-
         <v-layout row wrap>
-<v-flex md6 xs6>
-        <span class="display-1">Name Digger</span>
-</v-flex>
-<v-flex md6 xs6>
-  <file-picker/>
-</v-flex>
+          <v-flex md6 xs6>
+            <span class="display-1">Name Digger</span>
+          </v-flex>
+          <v-flex md6 xs6>
+            <file-picker />
+          </v-flex>
         </v-layout>
-        
-
       </v-flex>
       <v-flex v-for="i in 2" :key="`6${i}`" xs6>
         <v-card dark color="secondary">

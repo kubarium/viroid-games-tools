@@ -1,34 +1,46 @@
 <template>
-    <v-toolbar id="titlebar" absolute app dark color="primary" scroll-off-screen scroll-target="#main">
-        <v-toolbar-side-icon>
-            <img src="../assets/viroid_64x64_transparent.png" height="36" />
-        </v-toolbar-side-icon>
+  <v-app-bar
+    id="titlebar"
+    absolute
+    app
+    dark
+    color="primary"
+    scroll-off-screen
+    scroll-target="#main"
+  >
+    <v-app-bar-nav-icon>
+      <img src="../assets/viroid_64x64_transparent.png" height="36" />
+    </v-app-bar-nav-icon>
 
-        <v-toolbar-title>
-            <router-link to="/" class="font-weight-bold subheading text-uppercase text-no-underline white--text">
-                Viroid Games Tools</router-link>
-        </v-toolbar-title>
+    <v-toolbar-title>
+      <router-link
+        to="/"
+        class="font-weight-bold subheading text-uppercase text-no-underline white--text"
+      >
+        Viroid Games Tools</router-link
+      >
+    </v-toolbar-title>
 
-        <v-spacer></v-spacer>
-        
+    <v-spacer></v-spacer>
+
     <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat to="/name-extractor">
-          <v-icon>fas fa-file-alt</v-icon> Name Extractor
-        </v-btn>
-        <v-btn flat to="/">
-          <v-icon>fas fa-shield-alt</v-icon> Coat of Arms
-        </v-btn>
-          <v-btn small icon @click="currentWindow.minimize()">
-            <v-icon>fas fa-window-minimize</v-icon>a
-          </v-btn>
-          <v-btn small icon @click="currentWindow.maximize()">
-            <v-icon>fas fa-window-maximize</v-icon>a
-          </v-btn>
-          <v-btn small icon @click="currentWindow.close()">
-            <v-icon>fas fa-window-close</v-icon>a
-          </v-btn>
+      <v-btn text to="/name-extractor">
+        <v-icon>fas fa-file-alt</v-icon> Name Extractor
+      </v-btn>
+      <v-btn text to="/">
+        <v-icon>fas fa-shield-alt</v-icon> Coat of Arms
+      </v-btn>
+      <v-btn small icon @click="currentWindow.minimize()">
+        <v-icon>fas fa-window-minimize</v-icon>
+      </v-btn>
+      <v-btn small icon @click="currentWindow.maximize()">
+        <v-icon>fas fa-window-maximize</v-icon>
+      </v-btn>
+      <v-btn small icon @click="currentWindow.close()">
+        <v-icon>fas fa-window-close</v-icon>
+      </v-btn>
     </v-toolbar-items>
-    </v-toolbar>
+  </v-app-bar>
 </template>
 
 <script>

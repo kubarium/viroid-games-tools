@@ -1,12 +1,24 @@
 <template>
-    <div>
-        <v-text-field prepend-icon="attach_file" single-line
-                      v-model="filename" :label="label" :required="required"
-                      @click.native="onFocus"
-                      :disabled="disabled" ref="fileTextField"></v-text-field>
-        <input type="file" :accept="accept" :multiple="false" :disabled="disabled"
-               ref="fileInput" @change="onFileChange">
-    </div>
+  <div>
+    <v-text-field
+      prepend-icon="attach_file"
+      single-line
+      v-model="filename"
+      :label="label"
+      :required="required"
+      @click.native="onFocus"
+      :disabled="disabled"
+      ref="fileTextField"
+    ></v-text-field>
+    <input
+      type="file"
+      :accept="accept"
+      :multiple="false"
+      :disabled="disabled"
+      ref="fileInput"
+      @change="onFileChange"
+    />
+  </div>
 </template>
 
 <script>
@@ -60,7 +72,7 @@ export default {
     },
     onFocus() {
       if (!this.disabled) {
-        debugger;
+        //debugger;
         this.$refs.fileInput.click();
       }
     },

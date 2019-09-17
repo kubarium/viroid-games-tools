@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require("electron");
 const electron = require("electron");
+const debug = require("electron-debug");
 const path = require("path");
 const { format } = require("url");
 const { resolve } = require("app-root-path");
@@ -10,6 +11,7 @@ require("electron-reload")(__dirname, {
   electron: path.join(__dirname, "../node_modules", ".bin", "electron")
 });
 
+debug();
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
@@ -29,10 +31,13 @@ async function createWindow() {
     maxWidth: 1600,
     height: 500,
     x: display.bounds.x + 50,
-    y: display.bounds.y + 50
+    y: display.bounds.y + 50,
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
 
-  const devPath = "http://localhost:8080";
+  const devPath = "http://localhost:8082";
   const prodPath = format({ pathname: resolve("dist/index.html"), protocol: "file:", slashes: true });
 
   const url = isDev ? devPath : prodPath;

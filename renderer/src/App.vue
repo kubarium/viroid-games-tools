@@ -1,6 +1,5 @@
 <template>
   <v-app>
-
     <toolbar />
     <!-- <v-toolbar app>
     </v-toolbar> -->
@@ -12,7 +11,6 @@
         </keep-alive>
       </v-container>
     </v-content>
-
   </v-app>
 </template>
 <script>

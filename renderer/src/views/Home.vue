@@ -1,6 +1,6 @@
 <template>
   <div class="container has-text-centered">
-    <img alt="Viroid Games Logo" src="../assets/viroid_512x512.png">
+    <img alt="Viroid Games Logo" src="../assets/viroid_512x512.png" />
   </div>
 </template>
 
