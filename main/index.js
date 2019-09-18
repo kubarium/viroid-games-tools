@@ -11,7 +11,7 @@ require("electron-reload")(__dirname, {
   electron: path.join(__dirname, "../node_modules", ".bin", "electron")
 });
 
-debug();
+//debug();
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
@@ -37,7 +37,7 @@ async function createWindow() {
     }
   });
 
-  const devPath = "http://localhost:8082";
+  const devPath = "http://localhost:8080";
   const prodPath = format({ pathname: resolve("dist/index.html"), protocol: "file:", slashes: true });
 
   const url = isDev ? devPath : prodPath;
