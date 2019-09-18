@@ -1,31 +1,61 @@
 <template>
-  <nav id="titlebar" role="navigation" aria-label="main navigation" class="navbar is-info is-fixed-top">
+  <nav
+    id="titlebar"
+    role="navigation"
+    aria-label="main navigation"
+    class="navbar is-info is-fixed-top"
+  >
     <div class="navbar-brand">
-      <router-link to="/" class="site-name navbar-item is-size-7 is-uppercase has-text-weight-bold">
-        <img src="../assets/viroid_64x64_transparent.png" /> Viroid Games Tools</router-link>
+      <router-link
+        to="/"
+        class="site-name navbar-item is-size-7 is-uppercase has-text-weight-bold"
+      >
+        <img src="../assets/viroid_64x64_transparent.png" /> Viroid Games
+        Tools</router-link
+      >
     </div>
     <div class="navbar-menu is-active">
       <div class="navbar-end">
-        <router-link to="/name-extractor" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
+        <router-link
+          to="/name-extractor"
+          rel="noopener noreferrer"
+          class="navbar-item is-uppercase is-size-7 has-text-weight-bold"
+        >
           <v-icon>fas fa-file-alt</v-icon> Name Extractor
         </router-link>
 
-        <router-link to="/" rel="noopener noreferrer" class="navbar-item is-uppercase is-size-7 has-text-weight-bold">
+        <router-link
+          to="/"
+          rel="noopener noreferrer"
+          class="navbar-item is-uppercase is-size-7 has-text-weight-bold"
+        >
           <v-icon>fas fa-shield-alt</v-icon>
           Coat of Arms
         </router-link>
 
-        <div class="navbar-item has-dropdown is-hoverable" v-for="(entry,index) in menu" :key="index">
-          <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{entry.label}}</a>
+        <div
+          class="navbar-item has-dropdown is-hoverable"
+          v-for="(entry, index) in menu"
+          :key="index"
+        >
+          <a class="navbar-link is-uppercase is-size-7 has-text-weight-bold">{{
+            entry.label
+          }}</a>
           <div class="navbar-dropdown" v-if="entry.items">
-            <router-link :to="item.url" class="navbar-item  is-size-7" v-tooltip.left="item.desc" v-for="item in entry.items" :key="item.label">
+            <router-link
+              :to="item.url"
+              class="navbar-item  is-size-7"
+              v-tooltip.left="item.desc"
+              v-for="item in entry.items"
+              :key="item.label"
+            >
               <span class="is-uppercase">
-                <v-icon v-if="item.icon">fas {{item.icon}}</v-icon> {{item.label}}
+                <v-icon v-if="item.icon">fas {{ item.icon }}</v-icon>
+                {{ item.label }}
               </span>
             </router-link>
           </div>
         </div>
-
       </div>
     </div>
     <div class="navbar-menu">
@@ -47,7 +77,7 @@
 </template>
 
 <script>
-import menu from "@/menu.json";
+import menu from "@/data/menu.json";
 /* "items": [
           {
             "label": "Urban",

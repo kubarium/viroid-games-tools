@@ -7,7 +7,12 @@ import "vuetify/dist/vuetify.min.css";
 Vue.use(Vuetify);
 
 const opts = {
-  iconfont: "fa"
+  iconfont: "fa",
+  theme: {
+    options: {
+      customProperties: true
+    }
+  }
 };
 
 export default new Vuetify(opts);

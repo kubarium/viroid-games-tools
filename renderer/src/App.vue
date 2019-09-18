@@ -1,8 +1,6 @@
 <template>
   <v-app>
     <toolbar />
-    <!-- <v-toolbar app>
-    </v-toolbar> -->
 
     <v-content id="main">
       <v-container fluid>
@@ -11,6 +9,19 @@
         </keep-alive>
       </v-container>
     </v-content>
+
+    <v-footer app color="primary" class="white--text">
+      <span>
+        <a
+          @click="$electron.shell.openExternal('http://viroidgames.com')"
+          class="white--text text-no-underline"
+        >
+          Viroid Games
+        </a>
+      </span>
+      <div class="flex-grow-1"></div>
+      <span>&copy; 2019</span>
+    </v-footer>
   </v-app>
 </template>
 <script>
@@ -27,21 +38,16 @@ export default {
 
 <style lang="scss">
 html {
-  border: 1px solid #209cee;
-  border-top: 0;
-  height: 100%;
-  overflow: hidden;
+  border: 1px solid var(--v-primary-base);
+  overflow: hidden !important;
 }
 .text-no-underline {
   text-decoration: none;
 }
-main,
-v-content {
-  max-height: calc(100vh - 3.25rem - 1px);
-  overflow: auto;
-  outline: 1px solid red;
+.v-content {
+  /* max-height: 100%; */
 }
-.section {
+.section1 {
   padding: 2rem 1.5rem;
 }
 .file-input {
