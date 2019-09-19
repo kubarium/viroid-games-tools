@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-text-field
-      prepend-icon="attach_file"
+      append-icon="fa-file-upload"
       single-line
       v-model="filename"
       :label="label"
@@ -33,7 +33,7 @@ export default {
     },
     label: {
       type: String,
-      default: "Please choose..."
+      default: "Please choose an e-book"
     },
     required: {
       type: Boolean,

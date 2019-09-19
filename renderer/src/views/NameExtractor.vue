@@ -4,7 +4,7 @@
       <v-flex xs12>
         <v-layout row wrap>
           <v-flex md6 xs6>
-            <span class="display-1">Name Digger</span>
+            <span class="display-1">Name Extractor</span>
           </v-flex>
           <v-flex md6 xs6>
             <file-picker />
