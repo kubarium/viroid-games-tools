@@ -13,51 +13,48 @@
     <v-spacer />
 
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn text small to="/name-extractor">
-        <v-icon left small>fas fa-file-alt</v-icon> Name Extractor
-      </v-btn>
-      <v-btn text small to="/">
-        <v-icon left small>fas fa-shield-alt</v-icon> Coat of Arms
-      </v-btn>
+      <v-sheet v-for="(entry, index) in menu" :key="index">
+        <v-menu v-if="entry.items" offset-y open-on-hover>
+          <template v-slot:activator="{ on }">
+            <v-btn text small v-on="on">
+              {{ entry.label }}
+            </v-btn>
+          </template>
 
-      <v-menu
-        offset-y
-        open-on-hover
-        v-for="(entry, index) in menu"
-        :key="index"
-      >
-        <template v-slot:activator="{ on }">
-          <v-btn text small v-on="on">
-            {{ entry.label }}
-          </v-btn>
-        </template>
-        <v-list min-width="240">
-          <v-list-item
-            @click=""
-            class="d-flex"
-            v-for="(item, index) in entry.items"
-            :key="index"
-          >
-            <router-link :to="item.url" class="text-no-underline">
-              <v-list-item-title>
-                <v-icon small v-if="item.icon">fas {{ item.icon }}</v-icon>
-                {{ item.label }}
-              </v-list-item-title>
-            </router-link>
-            <v-spacer />
-            <v-tooltip bottom max-width="20%" v-if="item.desc">
-              <template v-slot:activator="{ on }">
-                <span v-on="on">
-                  <v-icon x-small>fas fa-question</v-icon>
-                </span>
-              </template>
-              <span>{{ item.desc }}</span>
-            </v-tooltip>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+          <v-list min-width="240">
+            <v-list-item
+              class="d-flex v-list-item--link"
+              v-for="(item, index) in entry.items"
+              :key="index"
+            >
+              <router-link :to="item.url" class="text-no-underline">
+                <v-list-item-title>
+                  <v-icon small v-if="item.icon">fas {{ item.icon }}</v-icon>
+                  {{ item.label }}
+                </v-list-item-title>
+              </router-link>
+              <v-spacer />
+              <v-tooltip bottom max-width="20%" v-if="item.desc">
+                <template v-slot:activator="{ on }">
+                  <span v-on="on">
+                    <v-icon x-small>fas fa-question</v-icon>
+                  </span>
+                </template>
 
-      <v-divider vertical class="mx-2" />
+                <span>{{ item.desc }}</span>
+              </v-tooltip>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+
+        <v-btn text small :to="entry.url" v-else>
+          <v-icon left small>fas {{ entry.icon }}</v-icon> {{ entry.label }}
+        </v-btn>
+
+        <v-divider vertical class="mx-2" />
+      </v-sheet>
+
+      <!-- <v-divider vertical class="mx-2" /> -->
       <v-btn x-small icon @click="currentWindow.minimize()">
         <v-icon x-small>fas fa-window-minimize</v-icon>
       </v-btn>

@@ -1,5 +1,16 @@
 [
   {
+    "label": "Name Extractor",
+    "url": "/name-extractor",
+    "icon": "fa-file-alt"
+  },
+
+  {
+    "label": "Coat Of Arms",
+    "url": "/",
+    "icon": "fa-shield-alt"
+  },
+  {
     "label": "Entity Generators",
     "items": [
       {
@@ -66,5 +77,10 @@
         "url": "/fantasy-map-generator"
       }
     ]
+  },
+  {
+    "label": "Taggart",
+    "url": "/",
+    "icon": "fa-tags"
   }
 ]
