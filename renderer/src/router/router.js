@@ -15,9 +15,12 @@ export default new Router({
     {
       path: "/name-extractor",
       name: "name-extractor",
-      // route level code-splitting this generates a separate chunk (about.[hash].js)
-      // for this route which is lazy-loaded when the route is visited.
       component: () => import("../views/NameExtractor.vue")
+    },
+    {
+      path: "/taggart",
+      name: "taggart",
+      component: () => import("../views/Taggart.vue")
     }
   ]
 });
