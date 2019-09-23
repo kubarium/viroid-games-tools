@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <toolbar />
+    <app-bar />
 
     <v-content id="main">
       <v-container fluid>
@@ -25,12 +25,12 @@
   </v-app>
 </template>
 <script>
-import Navbar from "@/views/Navbar.vue";
-import Toolbar from "@/views/Toolbar.vue";
+//import Navbar from "@/views/Navbar.vue";
+import AppBar from "@/components/AppBar.vue";
 export default {
   components: {
-    Navbar,
-    Toolbar
+    //Navbar,
+    AppBar
   }
 };
 </script>
