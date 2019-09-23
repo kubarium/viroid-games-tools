@@ -74,6 +74,7 @@
 <script>
 import menu from "@/data/menu.json";
 export default {
+  name: "app-bar",
   created() {
     this.menu = menu;
   },
