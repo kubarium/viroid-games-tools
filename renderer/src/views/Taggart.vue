@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import firebase from "@/data/firebase.js";
+
 export default {
   computed: {
     id: {
