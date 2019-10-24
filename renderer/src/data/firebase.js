@@ -14,12 +14,4 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-var db = firebase.firestore();
-
-db.collection("tags")
-  .get()
-  .then(querySnapshot => {
-    querySnapshot.forEach(doc => {
-      console.log(doc);
-    });
-  });
+export default firebase.firestore();

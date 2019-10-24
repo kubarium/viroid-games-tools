@@ -17,19 +17,23 @@
         <v-container>
           <v-row class="align-center">
             <v-col cols="7">
-              <v-text-field placeholder="Type your tag" v-model="id" />
+              <v-text-field placeholder="Type your tag" v-model="query" />
             </v-col>
             <v-col>
               <v-row class="justify-space-around">
-                <v-btn class="primary">Check</v-btn>
+                <v-btn
+                  class="primary"
+                  @click="$store.dispatch('taggart/queryTag')"
+                  >Check</v-btn
+                >
                 <v-btn
                   class="green white--text"
-                  :disabled="!$store.state.taggart.tag.exists"
+                  :disabled="!$store.state.taggart.query.exists"
                   >Insert</v-btn
                 >
                 <v-btn
                   class="red white--text"
-                  :disabled="$store.state.taggart.tag.exists"
+                  :disabled="$store.state.taggart.query.exists"
                   >Remove</v-btn
                 >
               </v-row>
@@ -55,7 +59,9 @@
         <v-divider />
         <v-container>
           <v-row>
-            <p>asd</p>
+            <p v-for="tag in $store.state.taggart.tags" :key="tag.id">
+              {{ tag.data() }}
+            </p>
           </v-row>
         </v-container>
       </v-col>
@@ -64,13 +70,11 @@
 </template>
 
 <script>
-import firebase from "@/data/firebase.js";
-
 export default {
   computed: {
-    id: {
+    query: {
       get() {
-        return this.$store.state.taggart.tag.id;
+        return this.$store.state.taggart.query.tag;
       },
       set(value) {
         this.$store.commit("taggart/updateTaggart", value);
@@ -87,6 +91,7 @@ export default {
     getTags(startsWith) {
       //do shit
       console.log(this.stringify(startsWith));
+      this.$store.dispatch("taggart/getTags", startsWith);
     }
   }
 };
