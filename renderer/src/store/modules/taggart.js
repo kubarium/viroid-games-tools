@@ -5,18 +5,30 @@ const tags = db.collection("tags");
 const state = {
   query: {
     tag: "tavern",
-    exists: false
+    exists: false,
+    insertable: false,
+    removable: false,
+    updating: false,
+    status: "Submit to check"
   },
   tags: []
 };
 const getters = {};
 const actions = {
-  queryTag({ state }, tag) {
+  queryTag({ state, commit }) {
+    if (state.query.tag == "") return;
     tags
       .where("tag", "==", state.query.tag.toLowerCase())
       .get()
       .then(querySnapshot => {
-        state.query.exists = querySnapshot.empty;
+        commit("updateTaggart", {
+          exists: !querySnapshot.empty,
+          insertable: querySnapshot.empty,
+          removable: !querySnapshot.empty,
+          updating: false,
+          status: !querySnapshot.empty ? "It exists" : "You can insert it"
+        });
+
         console.log(querySnapshot);
       });
   },
@@ -31,11 +43,14 @@ const actions = {
           console.log(doc);
         }); */
     });
+  },
+  insertTag({ state }) {
+    tags.doc().set({ tag: state.query.tag, startsWith: state.query.tag.toLowerCase()[0] });
   }
 };
 const mutations = {
-  updateTaggart(state, tag) {
-    state.query.tag = tag;
+  updateTaggart(state, payload) {
+    state.query = Object.assign({}, state.query, payload);
   }
 };
 

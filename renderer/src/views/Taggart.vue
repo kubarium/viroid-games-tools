@@ -15,30 +15,37 @@
         </v-container>
         <v-divider />
         <v-container>
-          <v-row class="align-center">
-            <v-col cols="7">
-              <v-text-field placeholder="Type your tag" v-model="query" />
-            </v-col>
-            <v-col>
-              <v-row class="justify-space-around">
-                <v-btn
-                  class="primary"
-                  @click="$store.dispatch('taggart/queryTag')"
-                  >Check</v-btn
-                >
-                <v-btn
-                  class="green white--text"
-                  :disabled="!$store.state.taggart.query.exists"
-                  >Insert</v-btn
-                >
-                <v-btn
-                  class="red white--text"
-                  :disabled="$store.state.taggart.query.exists"
-                  >Remove</v-btn
-                >
-              </v-row>
-            </v-col>
-          </v-row>
+          <v-form @submit="$store.dispatch('taggart/queryTag')">
+            <v-row class="align-center">
+              <v-col cols="7">
+                <v-text-field
+                  placeholder="Type your tag"
+                  v-model="query"
+                  :label="$store.state.taggart.query.status"
+                />
+              </v-col>
+              <v-col>
+                <v-row class="justify-space-around">
+                  <v-btn
+                    class="primary"
+                    @click="$store.dispatch('taggart/queryTag')"
+                    >Check</v-btn
+                  >
+                  <v-btn
+                    class="green white--text"
+                    @click="$store.dispatch('taggart/insertTag')"
+                    :disabled="!$store.state.taggart.query.insertable"
+                    >Insert</v-btn
+                  >
+                  <v-btn
+                    class="red white--text"
+                    :disabled="!$store.state.taggart.query.removable"
+                    >Remove</v-btn
+                  >
+                </v-row>
+              </v-col>
+            </v-row>
+          </v-form>
         </v-container>
       </v-col>
 
@@ -77,7 +84,14 @@ export default {
         return this.$store.state.taggart.query.tag;
       },
       set(value) {
-        this.$store.commit("taggart/updateTaggart", value);
+        this.$store.commit("taggart/updateTaggart", {
+          tag: value,
+          insertable: false,
+          removable: false,
+          exists: false,
+          updating: true,
+          status: "Submit to check"
+        });
       }
     }
   },
